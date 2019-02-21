@@ -1,0 +1,49 @@
+Using Java or C++, write a recursive implementation and an iterative implementation of Quicksort.
+
+I will provide a text file with the input. Each line will contain one string. Your main must read the text file and store the data in some container, e.g., an array or an ArrayList.
+
+That container is passed to your routines.
+
+Pseudcode:
+
+   void main(String[] args)
+
+   {
+
+         fileName = args[0];
+
+         ArrayList<String> input = getInput(fileName);
+
+        doIteratively(input);
+
+         doRecursively(input);
+
+   }
+
+   static void doIteratively(ArrayList<String> input)
+
+   {
+
+         System.out.println("Iteratively");
+
+         ArrayList<String> answer = doIteratively2(input);
+
+         printResults(answer);
+
+}
+
+ static void doRecursively(ArrayList<String> input)
+
+{
+
+         System.out.println("Recursively");
+
+         ArrayList<String> answer = doRecursively2(input);
+
+         printResults(answer);
+
+}
+
+The <x>2 functions do the actual sorting.
+
+printResuts(list)  prints out the list in increasing index order with each element separated by 2 spaces.
