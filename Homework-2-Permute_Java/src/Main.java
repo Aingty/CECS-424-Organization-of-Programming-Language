@@ -15,7 +15,7 @@ public class Main
 		// Check if command line argument was given
 		if (args.length == 0)
 		{
-			System.out.println("Please provide a file as command line argument!");
+			System.out.println("Please provide a file as command line argument!\n");
 			System.exit(0);
 		}
 
@@ -36,5 +36,54 @@ public class Main
 			System.out.println("File was NOT FOUND!!!");
 			e.printStackTrace();
 		}
+
+
+        System.out.print("Original String: ");
+        printResult("Testing", input);
+
+
+    }
+    
+
+    // Functions that Iteratively Do the Permute
+    public static void doIteratively(ArrayList<String> input)
+    {
+        System.out.print("Original Iterative String: ");
+
+        for(String s : input)
+        {
+            ArrayList<String> answer = doIteratively2(s);
+            printResult(s, answer);
+        }
+    }
+
+    public static ArrayList<String> doIteratively2(String s)
+    {
+        ArrayList<String> array = new ArrayList<String>();
+        int j; // counter to count up from "i"
+        for(int i=0; i < s.length; i++)
+        {
+            for (j=i+1; j = i; j++)
+            {
+                if(!(j < s.length))
+                {
+                    j=0;
+                }
+                
+
+            }
+        }
+        return array;
+    }
+
+    // Printing all the possible Permute
+    public static void printResult(String s, ArrayList<String> list)
+    {
+        System.out.print(s + "\nPermute(s):\n");
+        for(int i = 0; i < list.size(); i++)
+        {
+            System.out.println("\t"+list.get(i));
+        }
+        System.out.println();
     }
 }
