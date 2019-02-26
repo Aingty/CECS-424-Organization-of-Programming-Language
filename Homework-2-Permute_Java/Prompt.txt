@@ -1,0 +1,65 @@
+Using Java or C++, write a recursive implementation and an iterative implementation of Permute. For a given string s, Permute(s) prints all the permutations of the characters in s.
+
+E.g., Permute(“cat”):   cat, cta, act, atc,  tca, tac.
+
+I will provide a text file with the input. Each line will contain one string. Your main must read the text file and store the data in some container, e.g., an array or an ArrayList.
+
+That container is passed to your routines.
+
+You may assume all the characters in a string are unique. You must allow for strings of length 0.
+
+Pseudcode:
+
+   void main(String[] args)
+
+   {
+
+         fileName = args[0];
+
+         ArrayList<String> input = getInput(fileName);
+
+        doIteratively(input);
+
+         doRecursively(input);
+
+   }
+
+   static void doIteratively(ArrayList<String> input)
+
+   {
+
+         System.out.println("Iteratively");
+
+            for( String s in input)
+
+            {
+
+                        ArrayList<String> answer = doIteratively2(s);
+
+                        printResults(s, answer);
+
+            }
+
+}
+
+ static void doRecursively(ArrayList<String> input)
+
+{
+
+         System.out.println("Recursively");
+
+         for( String s in input)
+
+            {
+
+                        ArrayList<String> answer = doRecursively2(s);
+
+                        printResults(s, answer);
+
+            }
+
+}
+
+The <x>2 functions do the actual sorting.
+
+printResuts(s, list)  prints out the string s followed by a newline followed by list in with each element on a separate line..
