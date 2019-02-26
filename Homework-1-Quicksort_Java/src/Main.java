@@ -37,18 +37,20 @@ public class Main
 			e.printStackTrace();
 		}
 
+		System.out.print("Unsorted ArrayList: \n\t");
+		printResults(input);
 		doIteratively(input);
-		// doRecursively(input);
+		doRecursively(input);
 	
 	}
 
 
 
 
-	////////////////// Iterative Quicksort /////////////////////////////
+	////////////////// Iterative Quicksort /////////////////////////////////
 	public static void doIteratively(ArrayList<String> input)
 	{
-		System.out.println("Iteratively");
+		System.out.print("Iteratively:\n\t");
 		ArrayList<String> answer = doIteratively2(input, 0, input.size()-1);
 		printResults(answer);
 	}
@@ -119,47 +121,40 @@ public class Main
 	////////////////////End of Iterative Quicksort//////////////////////////
 
 
+	////////////////// Recursive Quicksort /////////////////////////////////
  	public static void doRecursively(ArrayList<String> input)
 	{
-		System.out.println("Recursively");
-		ArrayList<String> answer = doRecursively2(input);
+		System.out.print("Recursively:\n\t");
+		ArrayList<String> answer = doRecursively2(input, 0, input.size()-1);
 		printResults(answer);
 	}
 
-	// Recursive quick sort: Divide array until size is less than 4 and then call insertion sort on it. 
-	// Then combine array into one.
-	public static ArrayList<String> doRecursively2(ArrayList<String> input)
+
+	public static ArrayList<String> doRecursively2(ArrayList<String> input, int start, int end)
 	{
-		// If size of array is less than 3 then a simple sort is needed
-		if(input.size() <= 3)
-		{
-			return simpleSort(array);
+
+		int p = partition(input, start, end);
+
+		// Recursive for left array
+		if(start < p - 1) 
+		{ 
+			doIteratively2(input, start, p - 1); 
 		}
-		else
+
+		// Recursive for right array
+		if(end > p)
 		{
-			ArrayList<String> left = new ArrayList<String>();
-			ArrayList<String> right = new ArrayList<String>();
-			pivot = input.get(input.size()-1);
-			for(int i = 0; i < input.size(); i++)
-			{
-				if(input.get(i).compareTo(pivot) <= 0)
-				{
-					left.add(input.get(i));
-				}
-				else
-				{
-					right.add(input.get(i));
-				}
-			}
-			left = quickSort(left);
-			right = quickSort(right);
-			return left + right;
+			doRecursively2(input, p, end);
 		}
+
+		return input;
 	}
+
+	////////////////////End of Recursive Quicksort//////////////////////////
+
 
 	public static void printResults(ArrayList<String> input)
 	{
-		System.out.print("Result in Increasing Order: \n\t");
 		for (String i : input)
 		{
 			System.out.print(i +"  ");
