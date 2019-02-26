@@ -30,15 +30,15 @@ Pseudcode:
 
          System.out.println("Iteratively");
 
-            for( String s in input)
+        for( String s in input)
 
-            {
+        {
 
-                        ArrayList<String> answer = doIteratively2(s);
+            ArrayList<String> answer = doIteratively2(s);
 
-                        printResults(s, answer);
+            printResults(s, answer);
 
-            }
+        }
 
 }
 
@@ -50,13 +50,13 @@ Pseudcode:
 
          for( String s in input)
 
-            {
+        {
 
-                        ArrayList<String> answer = doRecursively2(s);
+            ArrayList<String> answer = doRecursively2(s);
 
-                        printResults(s, answer);
+            printResults(s, answer);
 
-            }
+        }
 
 }
 
