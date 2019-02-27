@@ -63,17 +63,26 @@ public class Main
         int j; // counter to count up from "i"
         for(int i=0; i < s.length; i++)
         {
-            for (j=i+1; j = i; j++)
+            for (j=i+1; j != i; j++)
             {
                 if(!(j < s.length))
                 {
                     j=0;
                 }
-                
-
+                array.add(swap(s,i,j));
+            
             }
         }
         return array;
+    }
+
+    public static String swap(String s, int first, int second)
+    {
+        char[] c = s.toCharArray();
+        char temp = c[first];
+        c[first] = c[second];
+        c[second] = temp;
+        return new String(c);
     }
 
     // Printing all the possible Permute
