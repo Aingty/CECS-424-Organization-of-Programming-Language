@@ -37,10 +37,7 @@ public class Main
 			e.printStackTrace();
 		}
 
-
-        System.out.print("Original String: ");
-        printResult("Testing", input);
-
+        doIteratively(input);
 
     }
     
@@ -61,16 +58,16 @@ public class Main
     {
         ArrayList<String> array = new ArrayList<String>();
         int j; // counter to count up from "i"
-        for(int i=0; i < s.length; i++)
+        for(int i=0; i < s.length(); i++)
         {
+            System.out.println(s);
             for (j=i+1; j != i; j++)
             {
-                if(!(j < s.length))
+                if(!(j < s.length()))
                 {
                     j=0;
                 }
-                array.add(swap(s,i,j));
-            
+                array.add(swap(s,i,j));            
             }
         }
         return array;
