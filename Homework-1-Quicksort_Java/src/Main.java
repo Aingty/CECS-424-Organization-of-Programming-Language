@@ -4,7 +4,7 @@ import java.util.*;
 public class Main 
 {
 	/**
-	 * @author Aingty Eung
+	 * @author Aingty Eung 013462772
 	 * @param args is file input for sorting
 	 */
 	public static void main(String[] args) 
