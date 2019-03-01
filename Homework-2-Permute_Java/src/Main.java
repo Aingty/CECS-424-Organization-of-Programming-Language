@@ -4,7 +4,7 @@ import java.util.*;
 public class Main 
 {
 	/**
-	 * @author Aingty Eung
+	 * @author Aingty Eung 013462772
 	 * @param args is file input for sorting
 	 */
 	public static void main(String[] args) 
@@ -36,8 +36,9 @@ public class Main
 			System.out.println("File was NOT FOUND!!!");
 			e.printStackTrace();
 		}
-
-        doIteratively(input);
+        ArrayList<String> input2 = new ArrayList<String>();
+        input2.add("Cat");
+        doIteratively(input2);
 
     }
     
@@ -50,25 +51,25 @@ public class Main
         for(String s : input)
         {
             ArrayList<String> answer = doIteratively2(s);
-            printResult(s, answer);
+            //printResult(s, answer);
         }
     }
 
     public static ArrayList<String> doIteratively2(String s)
     {
         ArrayList<String> array = new ArrayList<String>();
-        int j; // counter to count up from "i"
-        for(int i=0; i < s.length(); i++)
+        String temp = s;
+        boolean noMore = false;
+        array.add(temp);
+        int i = 0, j = 0; // counter to count up from "i"
+        
+        while(!noMore)
         {
-            System.out.println(s);
-            for (j=i+1; j != i; j++)
+            if(j < s.length())
             {
-                if(!(j < s.length()))
-                {
-                    j=0;
-                }
-                array.add(swap(s,i,j));            
+                temp = swap(temp,i,j);
             }
+            for(int )
         }
         return array;
     }
@@ -85,8 +86,8 @@ public class Main
     // Printing all the possible Permute
     public static void printResult(String s, ArrayList<String> list)
     {
-        System.out.print(s + "\nPermute(s):\n");
-        for(int i = 0; i < list.size(); i++)
+        System.out.print(list.get(0) + "\nPermute(s):\n");
+        for(int i = 1; i < list.size(); i++)
         {
             System.out.println("\t"+list.get(i));
         }
