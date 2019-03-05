@@ -59,17 +59,17 @@ public class Main
     {
         ArrayList<String> array = new ArrayList<String>();
         String temp = s;
-        boolean noMore = false;
-        array.add(temp);
-        int i = 0, j = 0; // counter to count up from "i"
-        
-        while(!noMore)
+        int startingPos = 0, nextPos = -1; // counter to the next position
+        if(temp.size()==1)
         {
-            if(j < s.length())
-            {
-                temp = swap(temp,i,j);
-            }
-            for(int )
+            array.add(temp);
+            return array;
+        }
+        while(startingPos != temp.size()-1)
+        {
+
+            array.add(temp);
+            temp = swap(temp, startingPos, nextPos);
         }
         return array;
     }
