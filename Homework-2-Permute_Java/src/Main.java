@@ -36,10 +36,7 @@ public class Main
 			System.out.println("File was NOT FOUND!!!");
 			e.printStackTrace();
 		}
-        ArrayList<String> input2 = new ArrayList<String>();
-        input2.add("Cat");
-        doIteratively(input2);
-
+        doIteratively(input);
     }
     
 
@@ -51,25 +48,48 @@ public class Main
         for(String s : input)
         {
             ArrayList<String> answer = doIteratively2(s);
-            //printResult(s, answer);
+            printResult(s, answer);
         }
     }
 
     public static ArrayList<String> doIteratively2(String s)
     {
         ArrayList<String> array = new ArrayList<String>();
-        String temp = s;
-        int startingPos = 0, nextPos = -1; // counter to the next position
-        if(temp.size()==1)
+        String temp = s, temp1;
+        int startingPos = 0, nextPos = 0; // counter to the next position
+        if(temp.length()==1)
         {
             array.add(temp);
             return array;
         }
-        while(startingPos != temp.size()-1)
+        while(startingPos != temp.length()-1)
         {
-
-            array.add(temp);
+            // Swapping the main string to get the next possible combinations
             temp = swap(temp, startingPos, nextPos);
+
+            // Adding to array but only if it doesn't already
+            if(!array.contains(temp))
+            {
+                array.add(temp);
+            }
+            // Swapping all the possible combination of current string
+            for(int j=1; j < temp.length(); j++)
+            {
+                temp1 = swap(temp,0,j);
+                // Adding to array but only if it doesn't already
+                if(!array.contains(temp1))
+                {
+                    array.add(temp1);
+                }
+            }
+
+            // Moving the nextPos pointer to swap the main string with the next possible combinations
+            nextPos++;
+            if(nextPos == temp.length())
+            {
+                startingPos++;
+                nextPos = startingPos+1;
+            }
         }
         return array;
     }
