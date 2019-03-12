@@ -36,7 +36,8 @@ public class Main
 			System.out.println("File was NOT FOUND!!!");
 			e.printStackTrace();
 		}
-        //doIteratively(input);
+        doIteratively(input);
+        System.out.println("------------------------------------------------------\n");
         doRecursively(input);
     }
     
@@ -49,7 +50,7 @@ public class Main
         for(String s : input)
         {
             ArrayList<String> answer = doIteratively2(s);
-            System.out.print("Original Iterative String: "+s);
+            System.out.println("Original Iterative String: "+s);
             printResult(s, answer);
         }
     }
@@ -79,10 +80,10 @@ public class Main
     // Functions that Recursively do the Permute
     public static void doRecursively(ArrayList<String> input)
     {
-        ArrayList<String> testing = new ArrayList<String>();
         for(String s : input)
         {
-            ArrayList<String> answer = doRecursively2(s, 0, s.length()-1, testing);
+            ArrayList<String> answer = new ArrayList<String>();
+            answer = doRecursively2(s, 0, s.length()-1, answer);
             System.out.println("Original Recursive String: "+s);
             printResult(s, answer);
         }
@@ -92,7 +93,6 @@ public class Main
     {
         if (current == next)
         {
-            System.out.println(s);
             array.add(s);
             return array; 
         } 
@@ -121,7 +121,7 @@ public class Main
     public static void printResult(String s, ArrayList<String> list)
     {
         System.out.print("Permute(s):\n");
-        for(int i = 1; i < list.size(); i++)
+        for(int i = 0; i < list.size(); i++)
         {
             System.out.println("\t"+list.get(i));
         }
