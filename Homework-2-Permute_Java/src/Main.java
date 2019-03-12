@@ -34,7 +34,8 @@ public class Main
 		catch (FileNotFoundException e) 
 		{
 			System.out.println("File was NOT FOUND!!!");
-			e.printStackTrace();
+			System.out.println("FIle: "+ args[0]+" is not in current directory!\n");
+            System.exit(1);
 		}
         doIteratively(input);
         System.out.println("------------------------------------------------------\n");
