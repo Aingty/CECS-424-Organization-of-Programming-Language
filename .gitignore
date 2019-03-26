@@ -1,6 +1,11 @@
 # Compiled class file
 *.class
 
+# Binary Output files for Haskell
+*.o
+*.hi
+*.haskell
+
 # Log file
 *.log
 
